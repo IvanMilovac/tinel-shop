@@ -1,0 +1,70 @@
+@import "../../../styles/mixins/mixins.scss";
+@import "../../../styles/variables/variables.scss";
+
+.details {
+  @include flexbox($grow: 1, $direction: column);
+
+  margin-top: 5.5rem;
+  width: 100%;
+
+  &__workshop {
+    max-width: 1800px;
+    margin: 0 auto;
+    @include flexbox($direction: column);
+
+    @include for-size($size: desktop-up) {
+      flex-direction: row;
+    }
+  }
+
+  &__back {
+    @include flexbox($gap: 0.25rem, $alignItems: center);
+
+    height: max-content;
+    padding: 1.5rem;
+    width: max-content;
+    font-weight: 700;
+    cursor: pointer;
+
+    @include for-size($size: desktop-up) {
+      width: 350px;
+      padding: 4.5rem 2.25rem;
+    }
+  }
+  &__suggestion {
+    background: $clr-light-gray;
+    padding: 1rem;
+    &-items,
+    &-title {
+      max-width: 1800px;
+      margin: 0 auto;
+      padding-block: 1rem;
+    }
+    &-title {
+      font-size: 2rem;
+      color: $clr-dark-gray;
+      @include for-size($size: tablet-portrait-up) {
+        padding-left: 3rem;
+      }
+      @include for-size($size: desktop-up) {
+        padding-left: 350px;
+      }
+    }
+    &-items {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(1, 1fr);
+
+      @include for-size($size: tablet-portrait-up) {
+        padding: 1.5rem 3rem 2rem;
+        gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include for-size($size: desktop-up) {
+        padding-left: 350px;
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}

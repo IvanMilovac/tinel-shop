@@ -1,0 +1,55 @@
+@import "../../../styles/variables/variables";
+@import "../../../styles/mixins/mixins";
+
+.filter {
+  padding: 5.5rem 1.5rem;
+  min-width: 350px;
+  display: none;
+
+  @include for-size($size: desktop-up) {
+    display: block;
+  }
+
+  &__mobile {
+    @include for-size($size: desktop-up) {
+      display: none;
+    }
+  }
+
+  &__title {
+    padding: 1.5rem 0 1.5rem 2rem;
+    color: $clr-gray;
+    font-weight: 700;
+  }
+
+  &__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.filter__list {
+  &-item {
+    @include flexbox($gap: 0.5rem, $alignItems: center);
+    padding-block: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      color: $clr-blue;
+      path {
+        stroke: $clr-blue;
+      }
+      text-decoration: underline;
+    }
+  }
+  .active {
+    color: $clr-blue;
+    path {
+      stroke: $clr-blue;
+    }
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,34 @@
+@import "../../../styles/mixins/mixins";
+@import "../../../styles/variables/variables";
+
+.term {
+  gap: 0.6rem;
+  padding-block: 1.5rem;
+  @include flexbox($gap: 0.5rem);
+
+  @include for-size($size: tablet-landscape-up) {
+    gap: 1rem;
+  }
+
+  &-date,
+  &-time {
+    @include flexbox($alignItems: center, $wrap: wrap);
+
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: $clr-dark-gray;
+
+    @include for-size($size: tablet-landscape-up) {
+      font-size: 1rem;
+    }
+  }
+
+  &-date,
+  &-time {
+    gap: 0.25rem;
+
+    @include for-size($size: tablet-landscape-up) {
+      gap: 0.5rem;
+    }
+  }
+}

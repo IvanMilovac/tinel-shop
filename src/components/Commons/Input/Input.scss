@@ -1,0 +1,53 @@
+@import "../../../styles/mixins/mixins";
+@import "../../../styles/variables/variables";
+
+.input {
+  position: relative;
+  @include flexbox($direction: column, $justifyContent: center, $grow: 1);
+  min-height: 6rem;
+  &__label {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  &__label-container {
+    @include flexbox(
+      $alignItems: center,
+      $justifyContent: space-between,
+      $gap: 3rem
+    );
+  }
+  &__input {
+    height: 3rem;
+    font-size: 1.125rem;
+    padding-left: 0.5rem;
+    border: 0;
+    border-bottom: 2px solid $clr-light-gray;
+    color: $clr-gray;
+
+    &::placeholder,
+    svg {
+      padding-left: 0;
+      color: $clr-gray;
+    }
+
+    &:focus,
+    &:active {
+      outline: none;
+      border-bottom-color: $clr-blue;
+    }
+  }
+
+  @include for-size(phone-only) {
+    input {
+      width: 100%;
+    }
+  }
+  .error {
+    font-size: 0.7rem;
+    color: red;
+  }
+
+  .input-error {
+    border-bottom-color: red;
+  }
+}

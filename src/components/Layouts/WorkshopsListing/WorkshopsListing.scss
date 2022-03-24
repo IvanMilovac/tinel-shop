@@ -1,0 +1,10 @@
+@import "../../../styles/mixins/mixins.scss";
+
+.listing {
+  @include flexbox($grow: 1);
+
+  margin-top: 5.5rem;
+  margin-inline: auto;
+  max-width: 1800px;
+  width: 100%;
+}

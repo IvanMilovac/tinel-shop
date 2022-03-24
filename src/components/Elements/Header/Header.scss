@@ -1,0 +1,67 @@
+@import "../../../styles/variables/variables";
+@import "../../../styles/mixins/mixins.scss";
+
+.header {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+
+  width: 100%;
+  padding-inline: 1.25rem;
+  background: $clr-yellow;
+
+  &__content {
+    @include flexbox($justifyContent: space-between, $alignItems: center);
+    height: 5.5rem;
+    max-width: 2000px;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    cursor: pointer;
+  }
+
+  &__cart {
+    @include flexbox($gap: 1rem, $alignItems: center);
+
+    margin-right: 0;
+
+    @include for-size($size: tablet-landscape-up) {
+      margin-right: 8rem;
+    }
+
+    color: $clr-dark-gray;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+
+    &-image {
+      font-size: 2rem;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      z-index: 1000;
+      top: 0.25rem;
+      left: 1.5rem;
+      background: $clr-blue;
+    }
+
+    &.hide:after {
+      display: none;
+    }
+
+    &-text {
+      display: none;
+      font-size: 1.125rem;
+
+      @include for-size($size: tablet-landscape-up) {
+        display: block;
+      }
+    }
+  }
+}

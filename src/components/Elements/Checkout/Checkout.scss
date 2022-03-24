@@ -1,0 +1,117 @@
+@import "../../../styles/variables/variables";
+@import "../../../styles/mixins/mixins";
+
+.checkout {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+  max-width: 700px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  padding: 2.5rem;
+  background: white;
+  border-radius: 1rem;
+
+  @include for-size($size: tablet-portrait-up) {
+    position: absolute;
+    height: auto;
+    overflow: auto;
+    top: 5rem;
+  }
+
+  &__header {
+    position: relative;
+    font-size: 2rem;
+
+    &-title {
+      font-weight: 700;
+    }
+
+    &-close {
+      position: absolute;
+      top: 0.3rem;
+      right: 0.25rem;
+    }
+
+    &-desc {
+      font-size: 0.875rem;
+      color: $clr-gray;
+      max-width: 70%;
+      padding-block: 0.5rem;
+    }
+  }
+
+  &__form {
+    @include flexbox($direction: column, $gap: 0.5rem);
+  }
+
+  &__body-date-gender {
+    @include flexbox($direction: column);
+
+    @include for-size($size: tablet-portrait-up) {
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+
+  .checkout__agree {
+    &-container {
+      @include flexbox($alignItems: center, $gap: 0.75rem);
+    }
+
+    position: relative;
+    width: 1.5em;
+    height: 1.5em;
+    color: $clr-dark-gray;
+    border: 1px solid $clr-gray;
+    border-radius: 4px;
+    outline: 0;
+    cursor: pointer;
+    transition: background 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
+
+    &:checked {
+      color: $clr-white;
+      border-color: $clr-blue;
+      background: $clr-blue;
+      &::before {
+        opacity: 1;
+      }
+      ~ label::before {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    &-label {
+      position: relative;
+      cursor: pointer;
+      font-size: 1.125rem;
+      font-weight: 600;
+      padding: 0 0.25em 0;
+      user-select: none;
+    }
+  }
+
+  &__spinner {
+    animation: rotating 0.7s linear infinite;
+  }
+
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  button {
+    align-self: flex-start;
+  }
+}

@@ -1,0 +1,72 @@
+@import "../../../styles/mixins/mixins.scss";
+@import "../../../styles/variables/variables.scss";
+
+.cart__card-wrapper {
+  position: relative;
+  height: 150px;
+}
+
+.cart__card {
+  @include flexbox();
+
+  overflow: hidden;
+  background: $clr-light-gray;
+  border-radius: 0.5rem;
+  position: relative;
+
+  &-image {
+    width: 30%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  &-content {
+    @include flexbox($justifyContent: space-between, $direction: column);
+
+    width: 70%;
+    position: relative;
+    padding: 1.25rem;
+  }
+
+  &-delete {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    font-size: 1.25rem;
+    color: $clr-gray;
+    cursor: pointer;
+  }
+
+  &-title {
+    max-width: 75%;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $clr-blue;
+  }
+
+  &-select {
+    @include flexbox($alignItems: center, $justifyContent: flex-end);
+
+    height: 2.5rem;
+  }
+  &-qty {
+    position: absolute;
+    bottom: 3.75rem;
+    left: calc(30% + 1.25rem);
+  }
+
+  &-price {
+    @include flexbox($alignItems: flex-end, $gap: 0.25rem);
+
+    margin-right: 1rem;
+
+    &-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    &-exchange {
+      font-size: 0.8rem;
+    }
+  }
+}

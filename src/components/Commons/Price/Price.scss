@@ -1,0 +1,19 @@
+@import "../../../styles/mixins/mixins";
+
+.price {
+  margin-block: 0.675rem;
+
+  font-weight: 700;
+  line-height: 1;
+
+  font-size: 1.25rem;
+  @include for-size($size: tablet-portrait-up) {
+    font-size: 1.875rem;
+  }
+  &__exchange {
+    font-size: 0.7rem;
+    @include for-size($size: tablet-portrait-up) {
+      font-size: 0.95rem;
+    }
+  }
+}

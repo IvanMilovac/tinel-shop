@@ -1,0 +1,128 @@
+@import "../../../styles/variables/variables";
+@import "../../../styles/mixins/mixins";
+
+.workshop {
+  flex-grow: 1;
+  position: relative;
+  width: 100%;
+  padding: 0 1.25rem 2rem;
+
+  @include for-size($size: desktop-up) {
+    padding: 3.75rem 1.25rem;
+  }
+
+  @include for-size($size: big-desktop-up) {
+    padding: 3.75rem 3.25rem;
+  }
+
+  &__image-container {
+    height: 250px;
+    overflow: hidden;
+    border-radius: 0.5rem;
+
+    @include for-size($size: tablet-portrait-up) {
+      height: 380px;
+      width: 100%;
+    }
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__category-image,
+  &__category-desktop {
+    font-size: 2.5rem;
+    background: $clr-dark-gray;
+    color: $clr-white;
+    path {
+      stroke: $clr-white;
+    }
+    border-radius: 0.4rem;
+  }
+
+  &__category-image {
+    position: absolute;
+    top: 230px;
+    right: 3rem;
+
+    @include for-size($size: tablet-portrait-up) {
+      display: none;
+    }
+  }
+
+  &__category-desktop {
+    display: none;
+
+    @include for-size($size: tablet-portrait-up) {
+      display: block;
+    }
+  }
+
+  &__term {
+    @include flexbox($gap: 1rem, $alignItems: center);
+
+    &-date {
+      padding-inline: 1rem;
+
+      @include for-size($size: tablet-portrait-up) {
+        padding-inline: 0;
+      }
+    }
+  }
+
+  &__content {
+    padding-right: 0;
+    position: relative;
+
+    @include for-size($size: tablet-landscape-up) {
+      padding-right: 50%;
+    }
+  }
+
+  &__title {
+    color: $clr-blue;
+    line-height: 1;
+    font-size: 2.25rem;
+    @include for-size($size: tablet-portrait-up) {
+      font-size: 3.75rem;
+    }
+  }
+
+  &__user,
+  &__description {
+    padding-inline: 1rem;
+
+    @include for-size($size: tablet-portrait-up) {
+      padding-inline: 0;
+    }
+  }
+
+  &__user {
+    padding-block: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $clr-dark-gray;
+
+    &-name {
+      font-size: 1.25rem;
+    }
+
+    @include for-size($size: tablet-portrait-up) {
+      padding-block: 1.5rem;
+      font-size: 1.125rem;
+
+      &-name {
+        font-size: 1.65rem;
+      }
+    }
+  }
+
+  &__description {
+    font-size: 1.125rem;
+    line-height: 125%;
+    color: $clr-dark-gray;
+  }
+}

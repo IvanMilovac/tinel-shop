@@ -1,0 +1,84 @@
+@import "../../../styles/variables/variables";
+@import "../../../styles/mixins/mixins";
+
+.cart {
+  position: fixed;
+  z-index: 9999;
+  height: 100%;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  overflow-y: scroll;
+  padding: 1rem 1.25rem;
+  background: $clr-white;
+  box-shadow: -1px -2px 16px rgba(127, 127, 127, 0.25);
+  transition: right 0.3s ease-out;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
+
+  &.show {
+    right: 0;
+  }
+
+  &__close {
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  @include for-size($size: tablet-portrait-up) {
+    width: 400px;
+  }
+
+  &__header {
+    @include flexbox($justifyContent: space-between, $alignItems: center);
+
+    padding: 1rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $clr-dark-gray;
+
+    &-icon {
+      font-size: 2rem;
+    }
+
+    &-nb {
+      @include flexbox($gap: 0.5rem, $alignItems: center);
+    }
+  }
+
+  &__body {
+    @include flexbox($direction: column, $gap: 1rem);
+    padding-block: 1.25rem;
+
+    &-empty {
+      text-align: center;
+    }
+  }
+  &__total {
+    margin-top: 1rem;
+
+    &-title {
+      color: $clr-gray;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    &-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    &-exchange {
+      font-size: 1.65rem;
+    }
+  }
+
+  &__checkout {
+    width: 85%;
+    margin: 2.5rem 1.5rem;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,77 @@
+@import "../../../styles/mixins/mixins.scss";
+@import "../../../styles/variables/variables.scss";
+
+.cta__card {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 500;
+  width: 100%;
+  padding: 1.125rem 1.25rem;
+  background: $clr-white;
+  box-shadow: -1px -2px 4px rgba(127, 127, 127, 0.25);
+
+  &-title,
+  &-subtotal {
+    display: none;
+  }
+
+  &-price-add {
+    @include flexbox(
+      $gap: 1rem,
+      $alignItems: center,
+      $justifyContent: space-between
+    );
+  }
+
+  &-add {
+    @include flexbox($gap: 0.5rem, $alignItems: center);
+  }
+
+  &-button {
+    font-size: 0.9rem;
+  }
+
+  @include for-size($size: tablet-landscape-up) {
+    position: absolute;
+    top: 1.5rem;
+    right: 0rem;
+    bottom: auto;
+    left: auto;
+    width: 360px;
+    padding: 2.5rem 3rem;
+    box-shadow: 1px 2px 16px rgba(127, 127, 127, 0.25);
+    border-radius: 0.5rem;
+
+    &-price-add {
+      flex-direction: column;
+      align-items: stretch;
+      padding-top: 1rem;
+    }
+
+    &-title {
+      display: block;
+      font-weight: 700;
+      font-size: 1.5rem;
+      line-height: 125%;
+    }
+
+    &-button {
+      font-size: 0.9rem;
+      padding-block: 0.5rem;
+      flex-grow: 1;
+    }
+
+    &-subtotal {
+      display: block;
+      color: $clr-gray;
+      padding-top: 0.5rem;
+      margin-right: 1rem;
+      text-align: right;
+    }
+
+    &-button {
+      font-size: 1.125rem;
+    }
+  }
+}

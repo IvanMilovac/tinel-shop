@@ -1,0 +1,44 @@
+@import "../../../styles/variables/variables";
+
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0.75rem;
+  font-weight: 700;
+  font-size: 1.125rem;
+  border-radius: 0.35rem;
+  transition: 0.2s all ease-in-out;
+}
+
+.primary {
+  color: $clr-dark-gray;
+  background: $clr-yellow;
+  cursor: pointer;
+  &:hover {
+    background: darken($clr-yellow, 10%);
+  }
+  &:focus {
+    background: darken($clr-yellow, 12%);
+  }
+  &:disabled {
+    background: #bbbbbb;
+    cursor: default;
+  }
+}
+
+.secondary {
+  color: $clr-white;
+  background: $clr-blue;
+  cursor: pointer;
+  &:hover {
+    background: darken($clr-blue, 10%);
+  }
+  &:focus {
+    background: darken($clr-blue, 12%);
+  }
+  &:disabled {
+    background: #bbbbbb;
+    cursor: default;
+  }
+}

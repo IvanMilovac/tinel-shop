@@ -1,0 +1,181 @@
+@import "../../../styles/variables/variables.scss";
+@import "../../../styles/mixins/mixins.scss";
+
+.card {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid $clr-light-gray;
+  background: $clr-white;
+  width: 100%;
+
+  @include flexbox($direction: row, $grow: 1, $shrink: 1);
+
+  @include for-size($size: tablet-portrait-up) {
+    @include flexbox($direction: column, $grow: 1, $shrink: 1);
+  }
+
+  &__images {
+    position: relative;
+    width: 30%;
+    min-height: 200px;
+
+    @include for-size($size: tablet-portrait-up) {
+      width: 100%;
+      height: 200px;
+    }
+  }
+
+  &__image-workshop {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+
+    @include for-size($size: tablet-portrait-up) {
+      width: 100%;
+      height: 200px;
+    }
+  }
+
+  &__image-category {
+    position: absolute;
+    z-index: 100;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    background: $clr-dark-gray;
+    color: $clr-white;
+    path {
+      stroke: $clr-white;
+    }
+    border-radius: 0.4rem;
+
+    top: 1.5rem;
+    right: -1rem;
+    @include for-size($size: tablet-portrait-up) {
+      top: auto;
+      right: auto;
+      bottom: -1rem;
+      right: 1.5rem;
+    }
+  }
+
+  &__content {
+    padding: 1.4rem 1.5rem;
+    width: 70%;
+    @include flexbox(
+      $direction: column,
+      $grow: 1,
+      $alignItems: flex-start,
+      $justifyContent: center
+    );
+
+    @include for-size($size: tablet-portrait-up) {
+      padding: 1.25rem 2.5rem 2.375rem;
+      width: 100%;
+
+      @include flexbox($direction: column, $grow: 1, $alignItems: flex-start);
+    }
+  }
+
+  &__term,
+  &__term-date,
+  &__term-time {
+    @include flexbox($alignItems: center, $wrap: wrap);
+
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: $clr-dark-gray;
+
+    @include for-size($size: tablet-landscape-up) {
+      font-size: 1rem;
+    }
+  }
+  &__term {
+    gap: 0.6rem;
+
+    @include for-size($size: tablet-landscape-up) {
+      gap: 1rem;
+    }
+  }
+  &__term-date,
+  &__term-time {
+    gap: 0.25rem;
+
+    @include for-size($size: tablet-landscape-up) {
+      gap: 0.5rem;
+    }
+  }
+
+  &:hover {
+    box-shadow: 1px 2px 16px rgba(127, 127, 127, 0.35);
+  }
+
+  &__cta {
+    width: max-content;
+
+    @include for-size($size: tablet-portrait-up) {
+      width: 100%;
+    }
+  }
+}
+
+.card__content {
+  &-title {
+    font-size: 1.125rem;
+    color: $clr-blue;
+    font-weight: 700;
+    flex: 1;
+    flex-flow: wrap;
+    margin-block: 0.675rem;
+    cursor: pointer;
+
+    @include for-size($size: tablet-portrait-up) {
+      font-size: 1.75rem;
+      margin-block: 0.675rem;
+    }
+  }
+
+  &-price {
+    margin-block: 0.675rem;
+
+    font-weight: 700;
+    line-height: 1;
+
+    font-size: 1.25rem;
+    @include for-size($size: tablet-portrait-up) {
+      font-size: 1.875rem;
+    }
+  }
+  &-exchange {
+    font-size: 0.7rem;
+    @include for-size($size: tablet-portrait-up) {
+      font-size: 0.95rem;
+    }
+  }
+
+  &-price-button {
+    @include flexbox($justifyContent: space-between);
+
+    align-self: stretch;
+
+    @include for-size($size: tablet-portrait-up) {
+      display: block;
+    }
+  }
+}
+
+.card__cta-desktop {
+  display: none;
+  @include for-size($size: tablet-portrait-up) {
+    display: block;
+  }
+}
+
+.card__cta-mobile {
+  display: block;
+  @include for-size($size: tablet-portrait-up) {
+    display: none;
+  }
+}
