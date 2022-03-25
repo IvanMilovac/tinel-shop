@@ -82,7 +82,7 @@ export const WorkshopsMain = () => {
 
   useFilterData(data, filter, setFilteredWorkshops);
 
-  useScrollMemory(isFetching, data);
+  useScrollMemory(data);
 
   const handleNextPage = () => fetchNextPage();
 
